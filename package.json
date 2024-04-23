@@ -3,23 +3,17 @@
   "version": "0.0.0",
   "description": "test",
   "private": true,
-  "main": "./dist/src/server.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node --experimental-loader newrelic/esm-loader.mjs -r newrelic ./dist/src/server.js"
+    "start": "node --experimental-loader newrelic/esm-loader.mjs -r newrelic ./src/server.js"
   },
   "files": [
-    "dist",
     "newrelic.cjs"
   ],
   "dependencies": {
     "fastify": "^4.26.2",
     "newrelic": "^11.15.0"
   },
-  "devDependencies": {
-    "@tsconfig/recommended": "1.0.6",
-    "@types/node": "^20.11.30",
-    "typescript": "^5.4.5"
-  }
+  "devDependencies": {}
 }

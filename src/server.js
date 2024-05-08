@@ -1,22 +1,19 @@
-
-import fastify from 'fastify';
+const timeout = 5000;
 
 const start = async () => {
-  const app = fastify();
+  console.log(`Starting, running for ${timeout/1000} seconds`);
 
-  app.listen({ host: 'localhost', port: 4000 }, (error, url) => {
-    if (error) {
-      console.log({ error });
+  await new Promise(function (resolve, _reject) {
+    setTimeout(function () {
+      console.log('Stopping, timeout expired');
 
-      process.exit(1);
-    }
-
-    console.log(`Server is listening on ${url}`);
-  });
+      resolve();
+    }, timeout);
+ });
 };
 
 start().catch((error) => {
-  console.log('Server error', { error });
+  console.log('Error', { error });
 
   process.exit(1);
 });
